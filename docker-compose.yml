@@ -4,11 +4,16 @@ services:
     build:
       dockerfile: Dockerfile
     volumes:
-      - ./src:/code
-    working_dir: /code
+      #      - ./src:/code
+      - python-source:/src
+    working_dir: /src
     tty: true
     # command: "/bin/bash"
     container_name: app
+
+volumes:
+  python-source:
+    external: true
 
     # First start the container
     # docker-compose up -d
